@@ -33,63 +33,29 @@ const pinos = (torres) => {
     divTorre3.addEventListener('click', cliquePinos)
 }
 
-const guardaBlocos = document.createElement('div')
 const main = document.querySelector('main')
+const guardaBlocos = document.createElement('div')
+guardaBlocos.classList.add('display')
 main.appendChild(guardaBlocos)
-
 
 const cliquePinos = (event) => {
     
-    
     let elementCount = event.currentTarget.childElementCount
     
-
     if (guardaBlocos.childElementCount === 0) {
         
         let ultimoElemento = event.currentTarget.lastElementChild
-        console.log(ultimoElemento)
         guardaBlocos.appendChild(ultimoElemento)
         
-    }
+    }else if(elementCount > 0 && guardaBlocos.childElementCount === 1){
 
-    if(elementCount > 0 && guardaBlocos.childElementCount === 1){
-        
         let ultimoElemento = event.currentTarget.lastChild.clientWidth
-        console.log(ultimoElemento, guardaBlocos)
         if(guardaBlocos.firstChild.clientWidth < ultimoElemento){
             event.currentTarget.appendChild(guardaBlocos.firstChild)
         }
     }else if(guardaBlocos.childElementCount === 1) {
         event.currentTarget.appendChild(guardaBlocos.firstChild)
     }
-
-    
 }
 
 pinos()
-
-
-//
-    //}
-
-    //if(variavelControle === 0){
-    //    console.log(event.target)
-    //    variavelControle = event.target.lastElementChild
-    //}
-    //
-    //if(variavelControle !== 0 && event.target.childElementCount === 0){
-    //    console.log(event.target, variavelControle)
-    //    event.target.append(variavelControle)
-    //    variavelControle = 0
-    //    contadorJogadas += 1
-    //}
-//
-    //if(variavelControle !== 0 && event.target.childElementCount !== 0){
-    //    if(variavelControle.clientWidth < event.target.lastElementChild){
-    //        event.target.appendChild(variavelControle)
-    //        variavelControle = 0
-    //        contadorJogadas += 1
-    //    }
-    //}
-
-
